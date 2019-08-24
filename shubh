@@ -1,0 +1,101 @@
+#!/bin/bash
+
+##########Colors###########
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+##########################
+
+
+
+#########Loading##########
+clear
+echo -e ${YELLOW} "Loading."
+sleep 1
+clear
+echo -e ${GREEN} "Loading.."
+sleep 1
+clear
+echo -e ${YELLOW} "Loading..."
+sleep 1
+clear
+echo -e ${GREEN} "Loading...."
+sleep 1
+clear
+echo -e ${YELLOW} "Loading....."
+sleep 2
+clear
+echo -e ${GREEN} "           Welcome again ${CYAN}Shubham ${RED}:)"
+#########################
+
+
+#######Login Details#######
+echo -e ${PURPLE} "-----------------------------------------------${GREEN}"
+echo "     Logged in as:" $(whoami)
+sleep 0.5
+date | awk '{print "     Date & Time:",$1,$2,$3,$4}'
+sleep 0.5
+last -1 | sed -n 1p | awk '{print "     IP Address:",$3}'
+sleep 0.5
+echo -e ${RED}"    " $(last $(whoami) | sed -n 2p | awk '{ print "Last Logged in:", $4,$5,$6,$7}')
+sleep 0.5
+echo "     Failed login attempts :" $(lastb | wc -l) 
+echo -e ${PURPLE} "-----------------------------------------------"
+###########################
+
+
+
+#########Automation##########
+echo -e ${CYAN} 
+echo
+echo "1.Simple Mode(Automated)"
+echo "2.Use Terminal"
+echo -e ${PURPLE}"3.Bored?(Choose This Option)"
+echo -e ${RED}"4.EXIT${GREEN}"
+echo
+read -p "Enter your choice:" a
+case $a in
+1)echo -e ${GREEN}"Work in Progress...."
+echo
+echo -e ${YELLOW}
+read -p "Press Enter to continue..."
+shubh1
+;;
+2)clear
+  echo
+  echo -e ${YELLOW}"Turning ${GREEN}ON ${YELLOW}Terminal..."
+  sleep 2
+  shubh2
+  ;;
+3)ssh sshtron.zachlatta.com
+ shubh1
+ ;;
+4)clear
+  echo
+  echo -e ${RED} "Exiting From Terminal..."
+  sleep 2
+  shubh2 
+  exit
+  ;;
+*) clear
+  echo
+  echo
+  echo -e ${RED}
+  read -p "Invalid Option Please Enter to continue..."
+  clear
+  shubh1
+ ;;
+ esac
+
+
+
+
+
+############Logs###########
+
+###########################
+
+echo -e ${NONE}
