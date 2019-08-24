@@ -1,0 +1,27 @@
+#!/bin/bash
+clear
+##########Colors###########
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+##########################
+
+#######Login Details#######
+echo -e ${PURPLE} "-----------------------------------------------${GREEN}"
+echo "     Logged in as:" $(whoami)
+sleep 0.5
+date | awk '{print "     Date & Time:",$1,$2,$3,$4}'
+sleep 0.5
+last -1 | sed -n 1p | awk '{print "     IP Address:",$3}'
+sleep 0.5
+echo -e ${RED}"    " $(last $(whoami) | sed -n 2p | awk '{ print "Last Logged in:", $4,$5,$6,$7}')
+sleep 0.5
+echo "     Failed login attempts :" $(lastb | wc -l)
+echo -e ${PURPLE} "-----------------------------------------------"
+###########################
+
+echo
+echo -e ${NONE}
