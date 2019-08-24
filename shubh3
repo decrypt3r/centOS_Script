@@ -1,0 +1,11 @@
+echo
+echo
+echo "Someone just logged into your Server"
+echo "Details are as follows:"
+echo "-----------------------------------------------"
+echo "     Logged in as:" $(whoami)
+date | awk '{print "     Date & Time:",$1,$2,$3,$4}'
+last -1 | sed -n 1p | awk '{print "     IP Address:",$3}'
+echo "    " $(last $(whoami) | sed -n 2p | awk '{ print "Last Logged in:", $4,$5,$6,$7}')
+echo "     Failed login attempts :" $(lastb | wc -l)
+echo "-----------------------------------------------"
